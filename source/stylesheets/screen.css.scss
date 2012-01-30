@@ -23,10 +23,11 @@ html {
 }
 
 body {
-  width: 800px;
+  width: 920px;
   height: 100%;
   margin: 0 auto;
   padding: 60px;
+  @include box-sizing(border-box);
   font-family: $default;
   color: $text
 }
