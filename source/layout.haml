@@ -2,19 +2,11 @@
 %html{lang: 'en'}
   %head
     %meta{charset: 'utf-8'}
-    %title= 'Test'
+    %title= 'Being a Genius'
     %link{href: 'http://fonts.googleapis.com/css?family=Alegreya+SC|Parisienne|Lilita+One|Crete+Round|Mate+SC', rel: 'stylesheet', type: 'text/css'}
     %script{src: 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'}
     = stylesheet_link_tag 'screen'
     = javascript_include_tag 'jquery.lettering-0.6.1.min'
-    = javascript_include_tag 'jquery.fittext'
     = javascript_include_tag 'init.js'
   %body
-    %header
-      %h1= link_to 'My Site', '/'
-    %nav
-      %ol
-        - ['Home', 'About', 'Products', 'Contact'].each do |page|
-          %li= link_to page, '#'
-    %section#main
-      = yield
+    = yield
