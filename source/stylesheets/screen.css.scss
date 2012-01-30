@@ -1,0 +1,196 @@
+@import "compass";
+
+$link1: hsl(0, 50%, 50%);
+$link2: adjust-lightness($link1, -10%);
+
+$text: hsl(0,0%,30%);
+
+$default: 'Helvetica Neue', Helvetica, sans-serif;
+
+body {
+  margin: 40px;
+  font-family: $default;
+  line-height: 24px;
+  color: $text
+}
+
+a {
+  @include hover-link;
+  @include link-colors($link1, $link2, $link1, $link1, $link2);
+}
+
+nav {
+  ol {
+    @include clearfix;
+    @include no-bullets;
+    padding: 0;
+  }
+  li { float: left; }
+  a { display: block; padding: 10px; }
+}
+
+#main { width: 800px; }
+
+// ====================================================
+
+$font1: 'Alegreya SC', $default;
+$font2: 'Parisienne', $default;
+$font3: 'Lilita One', $default;
+$font4: 'Crete Round', $default; 
+$font5: 'Mate SC', $default; 
+$font6: 'Georgia', $default; 
+
+$bg: #feefa4;
+$text: #b54825;
+$width: 800px;
+$i: 0;
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 60px;
+  @include box-sizing(border-box);
+  background: $bg;
+  color: $text
+}
+
+header, nav { display: none; }
+
+#main { margin: 0px auto; height: 100%; }
+
+.lettering {
+  height: 100%;
+  position: relative;
+  font: { size: 46px; weight: normal; }
+  line-height: 88px;
+  text-align: center;
+  & > span {
+    display: block;
+    position: absolute;
+  }
+}
+
+// @each $i in 1,3,6,8,9 { .line#{$i} { @include text-shadow(black 0 -1px 0px, white 0 1px 1px); } }
+
+$i: $i + 1;
+$x: 0;
+$y: 12px;
+// being
+.line#{$i} {
+  top: $y; left: $x;
+  font: { family: $font1; size: 100px; weight: normal; } text-transform: uppercase;
+  span { margin-left: 10px; }
+}
+
+$i: $i + 1;
+$x: 380px;
+$y: $y + 20px;
+// a
+.line#{$i} {
+  $border: 3px solid $text;
+  top: $y; left: $x;
+  font: { family: $font2; size: 60px; weight: normal; } line-height: 40px;
+  padding: 0 15px 7px 15px;
+  border-top: $border;
+  border-bottom: $border;
+}
+
+$i: $i + 1;
+$y: 0px;
+// genius
+.line#{$i} {
+  top: $y; right: 20px;
+  font: { family: $font3; size: 108px; weight: normal; }
+}
+
+$i: $i + 1;
+$x: 160px;
+$y: $y + 130px;
+// is
+.line#{$i} {
+  top: $y; left: $x;
+  font: { family: $font2; size: 60px; weight: normal; }
+}
+
+$i: $i + 1;
+$x: $x + 50px;
+$y: $y - 8px;
+// not
+.line#{$i} {
+  top: $y; left: $x;
+  font: { family: $font4; size: 80px; weight: normal; style: italic; }
+  color: $bg;
+  &:after {
+    content: '';
+    display: block;
+    background: $text;
+    width: 100px; height: 100px;
+    @include border-radius(50px);
+    margin: -85px 0 0 15px;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+$i: $i + 1;
+$x: $x + 150px;
+$y: $y + 10px;
+// an excuse
+.line#{$i} {
+  top: $y; left: $x;
+  font: { family: $font5; size: 40px; weight: normal; } text-transform: uppercase;
+  span { margin-left: 10px; }
+}
+
+$i: $i + 1;
+$w: 300px;
+$x: 360px - $w/3;
+$y: $y + 80px;
+// to be
+.line#{$i} {
+  width: $w;
+  top: $y; left: $x;
+  font: { family: $font2; size: 60px; weight: normal; }
+  &:before {
+    content: '';
+    display: block;
+    background: $bg;
+    height: 80px;
+    width: 130px;
+    position: absolute;
+    left: 28%;
+    z-index: -1;
+  }
+  &:after {
+    content: '';
+    display: block;
+    background: $text;
+    height: 2px; width: 100%;
+    position: absolute;
+    bottom: 40px;
+    z-index: -2;
+  }
+}
+
+$i: $i + 1;
+$x: 140px;
+$y: $y + 70px;
+// socially
+.line#{$i} {
+  top: $y; left: $x;
+  font: { family: $font6; size: 45px; weight: normal; }
+  span { margin-left: 10px; }
+}
+
+$i: $i + 1;
+$x: 420px;
+$y: $y - 5px;
+// awkward
+.line#{$i} {
+  top: $y; left: $x;
+  font: { family: $font6; size: 70px; weight: normal; }
+}
