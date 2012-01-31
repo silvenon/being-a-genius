@@ -1,8 +1,5 @@
 @import "compass";
 
-$link1: hsl(0, 50%, 50%);
-$link2: adjust-lightness($link1, -10%);
-
 $default: 'Helvetica Neue', Helvetica, sans-serif;
 
 $font1: 'Alegreya SC', $default;
@@ -17,6 +14,9 @@ $text: #b54825;
 $width: 800px;
 $i: 0;
 
+$link1: adjust-lightness($text, -20%);
+$link2: adjust-lightness($link1, -20%);
+
 html {
   height: 100%;
   background: $bg;
@@ -28,12 +28,20 @@ body {
   margin: 0 auto;
   padding: 60px;
   @include box-sizing(border-box);
-  font-family: $default;
-  color: $text
+  font: { family: $default; size: 12px; }
+  color: $text;
+}
+
+p { margin: 5px 0; }
+
+a {
+  @include hover-link;
+  @include link-colors($link1, $link2, $link2, $link1, $link2)
 }
 
 .lettering {
-  height: 100%;
+  height: 380px;
+  margin-bottom: 150px;
   position: relative;
   font: { size: 46px; weight: normal; }
   line-height: 88px;
@@ -161,4 +169,10 @@ $y: $y - 5px;
 .line#{$i} {
   top: $y; left: $x;
   font: { family: $font6; size: 70px; weight: normal; }
+}
+
+#about {
+  padding-top: 10px;
+  border-top: 1px solid rgba(black, .2);
+  text-align: center;
 }
